@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Catalyst Non Fungible Tokens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="main.js"></script>
+  
+</head>
+
+<!-- <body onload="displayFileDetails()"> -->
+    <body onLoad="hideLoadingGif(); return false">
+
+        
+        <h2>Upload the file you want to make as a NFT</h2>
+        <br>
+        <div id="main" style="padding-left: 500px;">
+            <div id="left_part" style="float: right;">
+                &nbsp;&nbsp;<button id="submitButton" onclick="uploadfile()">Upload</button><br />
+            </div>
+            <div class="custom-file mb-3" id="right_part" style="float: right;">
+                <input type="file" class="custom-file-input" id="customFile" name="filename">
+                <label class="custom-file-label" for="customFile" style="font-size: small;">Choose file</label><br><br>
+                <div id="pageLoading">
+                    <img src="images/page-load.jpeg" width="200px"  height="200px"/>
+                </div>
+                <p id="status"></p>
+            </div>
+          
+        </div>
+        <br>  <br><br>
+
+        <p id="tableData"></p>
+    
+</body>
+<script>
+    $(".custom-file-input").on('change', function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
+
+</html>
